@@ -1,0 +1,28 @@
+
+标题：大衍数列
+
+参考答案：
+i%2==0
+
+测评方法：
+
+用考生提交的答案代替程序中的 ######
+运行程序，比对结果为：
+024812182432405060728498112128144162180
+
+测评程序为：
+public class Main
+{
+	public static void main(String[] args)
+	{
+		//大衍数列,主要用于解释中国传统文化中的太极衍生原理
+		// 前几项：0、2、4、8、12、18、24、32、40、50
+		for(int i=1; i<20; i++){
+			if(######)
+				System.out.print(i*i/2);
+			else
+				System.out.print((i*i-1)/2);
+		}
+		System.out.println();
+	}
+}

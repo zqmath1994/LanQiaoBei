@@ -1,0 +1,14 @@
+
+// 我的工具类
+public class MyTool
+{
+	public static void main(String[] args)
+	{
+		int a = 100;
+		int b = 20;
+		if(a>b && true)
+			System.out.println(a);
+		else
+			System.out.println("this! //aaa//kkk");  // 测试注释显示是否正确
+	}
+}

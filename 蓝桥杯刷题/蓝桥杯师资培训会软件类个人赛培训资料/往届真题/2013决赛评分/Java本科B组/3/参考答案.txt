@@ -1,0 +1,58 @@
+
+题目标题：快速排序
+
+
+参考答案：
+li<=ri
+
+测评方法：
+
+用考生提交的答案代替程序中的 ######
+运行程序，比对结果为：
+5 12 12 12 13 15 18 19 19 21 23 27 29 34 55
+8 8 8 8 8 8 8 8 8 8 8
+
+测评程序为：
+
+
+public class Main
+{
+	static void f(int[] x, int left, int right)
+	{
+		if(left >= right) return;
+		
+		int key = x[(left+right)/2];
+		
+		int li = left;
+		int ri = right;
+		while(li<=ri){
+			while(x[ri]>key) ri--;
+			while(x[li]<key) li++;
+			
+			if(######){
+				int t = x[li];
+				x[li] = x[ri];
+				x[ri] = t;
+				li++;
+				ri--;
+			}	
+		}
+		
+		if(li < right) f(x, li, right);
+		if(ri > left) f(x, left, ri);
+	}
+	
+	static void test(int[] x)
+	{
+		f(x,0,x.length-1);
+		for(int i=0; i<x.length; i++) System.out.print(x[i] + " ");
+		System.out.println();
+	}
+	
+	public static void main(String[] args)
+	{
+		test(new int[]{15,23,12,27,19,21,34,55,12,13,29,18,5,12,19});
+		test(new int[]{8,8,8,8,8,8,8,8,8,8,8});
+	}
+}
+

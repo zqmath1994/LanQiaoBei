@@ -1,0 +1,46 @@
+
+标题：写日志
+
+参考答案：
+n%3 + 1
+
+测评方法：
+
+用考生提交的答案代替程序中的 ######
+运行程序，比对结果为：
+t1.log,a
+t2.log,a
+t3.log,a
+t1.log,a
+t2.log,a
+t3.log,a
+t1.log,a
+t2.log,a
+t3.log,a
+t1.log,a
+t2.log,a
+t3.log,a
+t1.log,a
+t2.log,a
+t3.log,a
+
+测评程序为：
+
+public class Main
+{
+	private static int n = 1;
+	
+	public static void write(String msg)
+	{
+		String filename = "t" + n + ".log";
+		n = ######;
+		System.out.println(filename + "," + msg);
+	}
+	
+	 
+	public static void main(String[] args)
+	{
+		for(int i=0; i<15; i++) write("a");
+		
+	}	
+}

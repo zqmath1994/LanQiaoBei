@@ -1,0 +1,28 @@
+
+// 我的工具类
+public class MyTool
+{
+	public static void main(String[] args)
+	{
+		int a = 100;
+		int b = 20;
+		if(a>b && true) // a 大于 b 并且 true
+			System.out.println(a);
+		else
+			System.out.println("this! aaakkk");  // 测试注释显示是否正确
+	}
+}
+
+// 以上是基本计分
+// 缩进显示正确：4分
+// 大于号等显示正确 3分
+// 关键字变为加重显示，3分
+// 共计 10 分
+
+//  以下的单独计分项目
+
+System.out.println("public is in string");   // 这个public在String中不应该变粗体 (3分)
+System.out.println("//这是串中的双斜线，不是注释，不要变绿 (3分)");
+System.out.println("\"//这仍然是串中的双斜线，不是注释，不要变绿 (6分)");
+
+// 如果没有找到扣分点，就是满分：22 分！

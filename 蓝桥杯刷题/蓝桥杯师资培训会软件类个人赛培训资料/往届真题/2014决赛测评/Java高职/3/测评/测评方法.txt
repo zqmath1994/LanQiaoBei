@@ -1,0 +1,52 @@
+
+参考答案：
+v.add((n-i) + "+" + t.get(k))
+
+其它情况，答案带入下面代码，替换 ######
+比对结果为：
+7
+6+1
+5+2
+5+1+1
+4+3
+4+2+1
+4+1+1+1
+3+3+1
+3+2+2
+3+2+1+1
+3+1+1+1+1
+2+2+2+1
+2+2+1+1+1
+2+1+1+1+1+1
+1+1+1+1+1+1+1
+
+测评程序为：
+
+import java.util.*;
+
+public class Main
+{	public static List fen(int n, int limit)
+	{
+		Vector v = new Vector();
+		if(n<=limit) v.add(n);
+		
+		for(int i=1; i<n; i++)
+		{
+			if(n-i > limit) continue;
+
+			List t = fen(i,n-i);
+			
+			for(int k=0; k<t.size(); k++)
+				######;
+		}
+		
+		return v;
+	}
+	
+	public static void main(String[] args)
+	{		
+		List v = fen(7,7);		
+		for(int i=0; i<v.size(); i++)
+			System.out.println(v.get(i));
+	}
+}

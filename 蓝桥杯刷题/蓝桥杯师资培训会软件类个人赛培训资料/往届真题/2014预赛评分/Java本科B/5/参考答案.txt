@@ -1,0 +1,27 @@
+
+标题：圆周率
+
+参考答案：
+4/(x-1)
+
+测评方法：
+
+用考生提交的答案代替程序中的 ######
+运行程序，比对结果为：
+3.1418
+
+测评程序为：
+public class Main
+{
+	public static void main(String[] args)
+	{
+	double x = 111;
+	for(int n = 100000; n>=0; n--){
+		int i = 2 * n + 1;
+		x = 2 + (i*i / x);
+	}
+	
+	System.out.println(String.format("%.4f",######));
+	}
+}
+

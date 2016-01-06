@@ -1,0 +1,58 @@
+
+题目标题：空白格式化
+
+参考答案：
+*p_from
+
+测评方法：
+
+用考生提交的答案代替程序中的 ######
+运行程序，比对结果为：
+|abc|
+|a b c|
+||
+
+
+测评程序为：
+
+#include <stdio.h>
+
+// 字符串的空白处理 
+
+void f(char* from, char* to)
+{
+	char* p_from = from;
+	char* p_to = to;
+	
+	while(*p_from==' ' || *p_from=='\t' || *p_from=='\n') p_from++;
+	
+	do{
+		if(*p_from==' ' || *p_from=='\t' || *p_from=='\n'){ 
+			do{p_from++;} while(*p_from==' ' || *p_from=='\t' || *p_from=='\n');
+			if(######) *p_to++ = ' ';
+		}
+	}while(*p_to++ = *p_from++);
+}
+
+void test(char* s)
+{
+	char buf[100];
+	buf[0] = 0;
+	f(s,buf); printf("%c%s%c\n",'|',buf,'|');
+}
+
+void myfunction()
+{
+	test("\t abc  \t   \n\n \t\t ");
+	test("  \t\t a  b \t\t\t  c\t \n");
+	test("\t \n   ");
+}
+
+
+int main()
+{
+	myfunction();
+	return 0;
+}
+
+

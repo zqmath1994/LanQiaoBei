@@ -1,0 +1,58 @@
+
+题目标题：逆波兰表达式
+
+参考答案：
+evaluate(x+1+v1.n)
+
+测评方法：
+
+用考生提交的答案代替程序中的 ######
+运行程序，比对结果为：
+42
+23
+
+
+
+测评程序为：
+
+
+#include <stdio.h>
+
+struct EV
+{
+	int result;  //计算结果 
+	int n;       //消耗掉的字符数 
+};
+
+struct EV evaluate(char* x)
+{
+	struct EV ev = {0,0};
+	struct EV v1;
+	struct EV v2;
+
+	if(*x==0) return ev;
+	
+	if(x[0]>='0' && x[0]<='9'){
+		ev.result = x[0]-'0';
+		ev.n = 1;
+		return ev;
+	}
+	
+	v1 = evaluate(x+1);
+	v2 = ######;
+	
+	if(x[0]=='+') ev.result = v1.result + v2.result;
+	if(x[0]=='*') ev.result = v1.result * v2.result;
+	if(x[0]=='-') ev.result = v1.result - v2.result;
+	ev.n = 1+v1.n+v2.n;
+
+	return ev;
+}
+
+int main()
+{
+	printf("%d\n",evaluate("-+3*5+261").result);
+	printf("%d\n",evaluate("+*35*42").result);
+	return 0;
+}
+

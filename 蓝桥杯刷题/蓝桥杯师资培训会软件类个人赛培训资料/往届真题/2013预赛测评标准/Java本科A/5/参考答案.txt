@@ -1,0 +1,66 @@
+
+题目标题：三部排序
+
+参考答案：
+p++
+
+测评方法：
+
+用考生提交的答案代替程序中的 ######
+运行程序，比对结果为：
+-1,-2,-6,-3,-5,-4,0,0,0,0,0,4,3,2,5,6,1,
+-1,-1,-2,-2,-3,-3,-4,-5,-4,-6,-5,-6,0,0,0,0,0,
+0,0,0,0,0,3,2,2,3,4,5,4,6,1,5,6,1,
+
+测评程序为：
+
+public class Main
+{
+	static void sort(int[] x)
+	{
+		int p = 0;
+		int left = 0;
+		int right = x.length-1;
+		
+		while(p<=right){
+			if(x[p]<0){
+				int t = x[left];
+				x[left] = x[p];
+				x[p] = t;
+				left++;
+				p++;
+			}
+			else if(x[p]>0){
+				int t = x[right];
+				x[right] = x[p];
+				x[p] = t;
+				right--;
+				//p++;				
+			}
+			else{
+				######;
+			}
+		}
+		
+		show(x);
+	}
+	
+	static void show(int[] x)
+	{
+		for(int i=0; i<x.length; i++)
+		{
+			System.out.print(x[i] + ",");
+		}
+		
+		System.out.println();
+	}
+	
+	public static void main(String[] args)
+	{
+		//int[] x = {25,18,-2,0,16,-5,33,21,0,19,-16,25,-3,0};
+		sort(new int[]{-1,0,1,-2,0,2,-3,0,0,3,-4,-5,4,-6,0,5,6});
+		sort(new int[]{-1,0,-1,-2,0,-2,-3,0,0,-3,-4,-5,-4,-6,0,-5,-6});
+		sort(new int[]{1,0,1,2,0,2,3,0,0,3,4,5,4,6,0,5,6});
+	}
+}
+

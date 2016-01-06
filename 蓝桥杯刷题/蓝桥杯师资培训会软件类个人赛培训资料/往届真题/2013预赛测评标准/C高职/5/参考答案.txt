@@ -1,0 +1,49 @@
+
+题目标题：公约数公倍数
+
+参考答案：
+m*n/b
+
+
+测评方法：
+
+用考生提交的答案代替程序中的 ######
+运行程序，比对结果为：
+6
+60
+6
+420
+
+
+测评程序为：
+
+#include <stdio.h>
+
+void swap(int *a,int *b)
+{
+   int temp;
+   temp=*a;
+   *a=*b;
+   *b=temp;
+}
+
+void myfunc(int a, int b)
+{
+   int m,n,r;  
+   if(a<b) swap(&a,&b);
+   m=a;n=b;r=a%b;
+   while(r!=0)
+   {
+    a=b;b=r;
+    r=a%b;
+   }
+   printf("%d\n",b);  // 最大公约数 
+   printf("%d\n",######);  // 最小公倍数 
+}
+
+int main()
+{
+	myfunc(30,12);
+	myfunc(12*7,30);
+	return 0;
+}

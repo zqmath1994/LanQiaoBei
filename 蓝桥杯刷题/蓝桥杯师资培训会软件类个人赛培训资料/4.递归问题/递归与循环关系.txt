@@ -1,0 +1,12 @@
+
+递归代替循环
+  简单循环
+  求串长度
+  。。。。
+  
+函数式语言
+  Haskell
+  Ocaml Clojure Scala
+  Erlang
+  Lisp
+  

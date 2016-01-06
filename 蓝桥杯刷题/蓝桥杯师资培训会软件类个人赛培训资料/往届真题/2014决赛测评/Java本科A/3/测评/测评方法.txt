@@ -1,0 +1,114 @@
+
+参考答案：
+spy(da,r,c)<2
+
+其它情况，答案带入下面代码，替换 ######
+比对结果为：
+10
+92
+
+测评程序为：
+
+public class Main
+{
+	static int max = 0;
+	static int T = 0;
+	static final int N = 5;
+	
+	static void show(int[][] da)
+	{
+		for(int i=0; i<da.length; i++){
+			for(int j=0; j<da[i].length; j++){
+				System.out.print(da[i][j] + " ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+	
+	static void f(int[][] da, int r, int c)
+	{	
+		if(r>=N){
+			int n = count(da);
+			if(n>max) {
+				max = n;
+				T = 0;
+			}
+			if(n==max) T++;
+			return;
+		}
+		
+		int r_next = r;
+		int c_next = c + 1;
+		if(c_next>=N){
+			c_next = 0;
+			r_next++;
+		}
+		
+		if(######){ 
+			da[r][c] = 1;
+			f(da, r_next, c_next); 
+		}
+		
+		da[r][c] = 0;
+		f(da, r_next, c_next);
+	}
+	
+	static int count(int[][] da)
+	{
+		int n = 0;
+		
+		for(int i=0; i<da.length; i++)
+		for(int j=0; j<da[i].length; j++) 
+			if(da[i][j]==1) n++;
+			
+		return n;
+	}
+	
+	static int spy(int[][] da, int r, int c)
+	{
+		int m=0;
+		
+		int n=0;
+		for(int i=0; i<N; i++) if(da[r][i]==1) n++;
+		if(n>m) m = n;
+
+		n=0;
+		for(int i=0; i<N; i++) if(da[i][c]==1) n++;
+		if(n>m) m = n;
+		
+		n=0;
+		for(int i=0; i<N; i++){ 
+			if(r-i<0 || c-i<0) break; 
+			if(da[r-i][c-i]==1) n++;
+		}
+		for(int i=1; i<N; i++){ 
+			if(r+i>=N || c+i>=N) break; 
+			if(da[r+i][c+i]==1) n++;
+		}
+		if(n>m) m = n;
+		
+		n=0;
+		for(int i=0; i<N; i++){ 
+			if(r-i<0 || c+i>=N) break; 
+			if(da[r-i][c+i]==1) n++;
+		}
+		for(int i=1; i<N; i++){ 
+			if(r+i>=N || c-i<0) break; 
+			if(da[r+i][c-i]==1) n++;
+		}
+		if(n > m) m = n;
+		
+		return m;
+	}
+	
+	public static void main(String[] args)
+	{
+		int[][] da = new int[N][N];
+		
+		f(da, 0, 0);
+		
+		System.out.println(max);
+		System.out.println(T);
+	}
+}

@@ -1,0 +1,57 @@
+
+题目标题：前缀判断
+
+参考答案：
+*haystack++ != *needle++
+
+测评方法：
+
+用考生提交的答案代替程序中的 ######
+运行程序，比对结果为：
+|abcd|
+[NO]
+|abcd|
+|abcd|
+[NO]
+||
+
+
+测评程序为：
+
+
+#include <stdio.h>
+
+char* start_with(char* haystack_start, char* needle_start)
+{
+	char* haystack = haystack_start;
+	char* needle = needle_start;
+
+	
+	while(*haystack && *needle){
+		if(######) return NULL;
+	}
+	
+	if(*needle) return NULL;
+	
+	return haystack_start;
+}
+
+void test(char* a, char* b)
+{
+	char* p = start_with(a,b); 
+	if(p==NULL) 
+		printf("[NO]\n");
+	else 
+		printf("|%s|\n", p);
+}
+
+int main()
+{
+	test("abcd","abc");
+	test("abcd","acb");
+	test("abcd","abcd");
+	test("abcd","");
+	test("","abc");
+	test("","");
+	return 0;
+}
